@@ -22,6 +22,10 @@ jobs:
             flutter create --platforms=ios,android --org com.example --project-name first_flutter_app .
           fi
 
+      - name: Fix CFBundleName (no underscores allowed for App ID name)
+        run: |
+          /usr/libexec/PlistBuddy -c "Set :CFBundleName FirstFlutterApp" ios/Runner/Info.plist
+
       - name: Install dependencies
         run: flutter pub get
 
