@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import '../theme/casino_theme.dart';
-import 'games_screen.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
 import 'wallet_screen.dart';
@@ -25,11 +24,6 @@ class MainNavigation extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.suit_spade),
-            activeIcon: Icon(CupertinoIcons.suit_spade_fill),
-            label: 'Spiele',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.creditcard),
             activeIcon: Icon(CupertinoIcons.creditcard_fill),
             label: 'Wallet',
@@ -46,8 +40,6 @@ class MainNavigation extends StatelessWidget {
           case 0:
             return const HomeScreen();
           case 1:
-            return const GamesScreen();
-          case 2:
             return const WalletScreen();
           default:
             return const ProfileScreen();
