@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../theme/casino_theme.dart';
 
@@ -6,55 +7,62 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Profil')),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: CasinoColors.surface,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              children: [
-                Container(
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    gradient: CasinoColors.balanceGradient,
-                    borderRadius: BorderRadius.circular(16),
+    return CupertinoPageScaffold(
+      backgroundColor: CasinoColors.background,
+      navigationBar: const CupertinoNavigationBar(
+        backgroundColor: CasinoColors.background,
+        border: null,
+        middle: Text('Profil'),
+      ),
+      child: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: CasinoColors.surface,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      gradient: CasinoColors.balanceGradient,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: const Icon(CupertinoIcons.person_fill, color: Colors.white, size: 28),
                   ),
-                  child: const Icon(Icons.person, color: Colors.white, size: 28),
-                ),
-                const SizedBox(width: 16),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Spieler',
-                      style: TextStyle(
-                        color: CasinoColors.textPrimary,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                  const SizedBox(width: 16),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Spieler',
+                        style: TextStyle(
+                          color: CasinoColors.textPrimary,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 4),
-                    Text(
-                      'Level 1',
-                      style: TextStyle(color: CasinoColors.textSecondary),
-                    ),
-                  ],
-                ),
-              ],
+                      SizedBox(height: 4),
+                      Text(
+                        'Level 1',
+                        style: TextStyle(color: CasinoColors.textSecondary),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          _ProfileTile(icon: Icons.emoji_events_outlined, label: 'Achievements'),
-          _ProfileTile(icon: Icons.bar_chart_outlined, label: 'Statistik'),
-          _ProfileTile(icon: Icons.settings_outlined, label: 'Einstellungen'),
-        ],
+            const SizedBox(height: 20),
+            const _ProfileTile(icon: CupertinoIcons.rosette, label: 'Achievements'),
+            const _ProfileTile(icon: CupertinoIcons.chart_bar, label: 'Statistik'),
+            const _ProfileTile(icon: CupertinoIcons.settings, label: 'Einstellungen'),
+          ],
+        ),
       ),
     );
   }
@@ -88,7 +96,7 @@ class _ProfileTile extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Icon(Icons.chevron_right, color: CasinoColors.textSecondary),
+          const Icon(CupertinoIcons.chevron_right, color: CasinoColors.textSecondary, size: 18),
         ],
       ),
     );
