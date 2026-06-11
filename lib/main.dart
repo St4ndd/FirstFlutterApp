@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'screens/main_navigation.dart';
 import 'theme/casino_theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Casino Chips',
       theme: buildCasinoTheme(),
-      home: const HomeScreen(),
+      home: const MainNavigation(),
     );
   }
 }
