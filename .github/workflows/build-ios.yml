@@ -25,11 +25,18 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build unsigned IPA
+      - name: Build unsigned archive
         run: flutter build ipa --release --no-codesign
+
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p build/ios/ipa/Payload
+          cp -r build/ios/archive/Runner.xcarchive/Products/Applications/Runner.app build/ios/ipa/Payload/
+          cd build/ios/ipa
+          zip -r unsigned.ipa Payload
 
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: unsigned-ipa
-          path: build/ios/ipa/*.ipa
+          path: build/ios/ipa/unsigned.ipa
