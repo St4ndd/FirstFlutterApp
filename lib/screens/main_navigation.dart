@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import '../theme/casino_theme.dart';
+import 'api_test/api_test_hub_screen.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
 import 'wallet_screen.dart';
@@ -33,6 +34,11 @@ class MainNavigation extends StatelessWidget {
             activeIcon: Icon(CupertinoIcons.person_fill),
             label: 'Profil',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.gear_alt),
+            activeIcon: Icon(CupertinoIcons.gear_alt_fill),
+            label: 'API Test',
+          ),
         ],
       ),
       tabBuilder: (context, index) {
@@ -41,8 +47,10 @@ class MainNavigation extends StatelessWidget {
             return const HomeScreen();
           case 1:
             return const WalletScreen();
-          default:
+          case 2:
             return const ProfileScreen();
+          default:
+            return const ApiTestHubScreen();
         }
       },
     );
